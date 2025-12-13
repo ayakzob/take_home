@@ -75,6 +75,12 @@ Submit a PR containing:
 
 **Take the time you need.** There’s no strict time limit — most people naturally spend around 3 hours, but what matters is that you end up with something you’re comfortable sharing. The most important thing is that the features work and are usable. The code doesn’t need to be production-ready, but it should be clear, reasonable, and not wildly over-engineered. We care most about seeing your ideas expressed in a way that feels coherent and practical.
 
+When we review submissions, we generally look at:
+	•	Core functionality: the required keytips work reliably and match expected spreadsheet behavior.
+	•	Product & usability: the experience is understandable, polished enough to feel “shippable,” and handles common workflows/edge cases gracefully.
+	•	Engineering judgment: clear, well-structured code that solves the problem without unnecessary complexity and would be straightforward to build on.
+	•	Bonus (optional): small, user-relevant enhancements that improve discoverability or quality-of-life without breaking the core spec.
+
 We love to see:
 
 * A clear thought process and systematic approach to implementation challenges
