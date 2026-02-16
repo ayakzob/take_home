@@ -1,14 +1,17 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import * as GC from '@mescius/spread-sheets';
 import { SpreadSheets } from '@mescius/spread-sheets-react';
 import '@mescius/spread-sheets/styles/gc.spread.sheets.excel2013white.css';
+import { useKeyTips, KEY_TIP_COMMANDS, KeyTipOverlay } from './keytips';
 import './App.css';
 
 function App() {
   const spreadRef = useRef<any>(null);
+  const [spreadInstance, setSpreadInstance] = useState<GC.Spread.Sheets.Workbook | null>(null);
+  const { state: keyTipState } = useKeyTips(KEY_TIP_COMMANDS, spreadInstance);
 
-  const initSpread = (spread: any) => {
-    console.log('Spread initialized');
+  const initSpread = (spread: GC.Spread.Sheets.Workbook) => {
+    setSpreadInstance(spread);
     const sheet = spread.getActiveSheet();
     
     // Set some initial data
@@ -69,11 +72,12 @@ function App() {
         Meridian Take Home
       </h2>
       <div style={{ flex: 1, position: 'relative' }}>
-        <SpreadSheets 
+        <KeyTipOverlay state={keyTipState} />
+        <SpreadSheets
           ref={spreadRef}
           workbookInitialized={initSpread}
-          hostStyle={{ 
-            width: '100%', 
+          hostStyle={{
+            width: '100%',
             height: '100%',
             position: 'absolute',
             top: 0,

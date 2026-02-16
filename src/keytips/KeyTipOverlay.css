@@ -1,0 +1,144 @@
+/* ── Floating glassmorphism overlay ────────────────────────────── */
+
+.keytip-overlay {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 18px;
+
+  /* Glassmorphism */
+  background: rgba(15, 15, 15, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+
+  /* Depth */
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  user-select: none;
+  pointer-events: auto;
+  white-space: nowrap;
+
+  animation: keytip-enter 200ms cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+@keyframes keytip-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.96) translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1) translateY(0);
+  }
+}
+
+/* ── Breadcrumb path ──────────────────────────────────────────── */
+
+.keytip-path {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.keytip-path-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 5px;
+  font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.keytip-path-separator {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 12px;
+  line-height: 1;
+}
+
+/* ── Divider ──────────────────────────────────────────────────── */
+
+.keytip-divider {
+  width: 1px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+}
+
+/* ── Available options ────────────────────────────────────────── */
+
+.keytip-options {
+  display: flex;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+.keytip-option {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 10px 5px 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  transition: background 150ms ease, border-color 150ms ease;
+  cursor: default;
+}
+
+.keytip-option:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.keytip-option-key {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  background: rgba(99, 152, 255, 0.85);
+  border-radius: 5px;
+  font-family: 'SF Mono', 'Monaco', 'Cascadia Code', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.keytip-option-label {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.78);
+  white-space: nowrap;
+}
+
+/* ── Hint ─────────────────────────────────────────────────────── */
+
+.keytip-hint {
+  font-size: 10.5px;
+  color: rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+  letter-spacing: 0.1px;
+}
